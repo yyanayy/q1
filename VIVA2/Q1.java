@@ -23,9 +23,13 @@ public class Q1 {
         int rD= 3, cD = 3;
         System.out.println("\nDeterminant of 3x3 matrices: ");
         System.out.println("Matrix A: ");
-        int[][] matAD = getMatrix(rD, cD);
+        double[][] matAD = getMatrixD(rD, cD);
+        double det = determinant(matAD, rD, cD);
+        System.out.println("Determinant of Matrix: " + det);
 
-        System.out.println("Determinant of Matrix A: " + determinant(matAD, rD, cD));
+        
+        System.out.println("Inverse of Matrix: ");
+        inverse(matAD, r, c, det);
         sc.close();
     }
 
@@ -36,6 +40,19 @@ public class Q1 {
         for(int i = 0; i < r; i++){
             for(int j = 0; j < c; j++){
                 mat[i][j] = sc.nextInt();
+            }
+        }
+      
+        return mat;
+    }
+
+    public static double[][] getMatrixD(int r, int c){
+        Scanner sc = new Scanner(System.in);
+
+        double[][] mat = new double[r][c];
+        for(int i = 0; i < r; i++){
+            for(int j = 0; j < c; j++){
+                mat[i][j] = sc.nextDouble();
             }
         }
       
@@ -62,8 +79,21 @@ public class Q1 {
         return add;
     }
 
-    public static int determinant(int[][] matA, int r, int c){
+    public static double determinant(double[][] matA, int r, int c){
         return (matA[0][0] * ((matA[1][1] * matA[2][2]) - (matA[1][2] * matA[2][1]))) - (matA[0][1] * ((matA[1][0] * matA[2][2]) - (matA[1][2] * matA[2][0]))) + (matA[0][2] * ((matA[1][0] * matA[2][1]) - (matA[1][1] * matA[2][0])));
     }
+
+
     
+    public static void inverse(double[][] matA, int r, int c, double det){
+        if(det == 0)
+            System.out.println("Inverse is not possible since the determinant is 0");
+
+        for(int i = 0; i < r; i++){
+            for(int j = 0; j < c; j++){
+                System.out.print((((matA[(j + 1) % 3][(i + 1) % 3] * matA[(j + 2) % 3][(i + 2) % 3]) - (matA[(j + 1) % 3][(i + 2) % 3] * matA[(j + 2) % 3][(i + 1) % 3])) / det) + " ");
+            }
+            System.out.println();
+        }
+    }
 }
