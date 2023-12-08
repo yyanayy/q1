@@ -22,6 +22,6 @@ $ git add <filename>
 $ git commit -m "<message>"
 $ git branch -M <branch>
 $ git remote add origin <https link git>
-$ git pull -u origin <branch>
-$ git push -u origin <branch>
+$ git pull <-u> origin <branch>
+$ git push <-u> origin <branch>
 ``` 
