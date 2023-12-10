@@ -1,13 +1,13 @@
 package random;
 import java.util.Scanner;
 
-public class q1 {
+public class q2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int r = 2, c = 2;
         
-        System.out.println("Addition of 2x2 matrices: ");
+        System.out.println("Negation of 2x2 matrices: ");
         System.out.println("Matrix A: ");
         int[][] matA = getMatrix(r, c);
         System.out.println("Matrix B: ");
