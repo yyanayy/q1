@@ -17,6 +17,8 @@ public class q1 {
         System.out.println("\nResultant Matrix:");
         display(add);
 
+        display(matB);
+
         sc.close();
     }
 
